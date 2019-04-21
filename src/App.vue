@@ -1,28 +1,31 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="app">
+      <Helloone :name="oneName" :hello='oneHello' @a="twoName = $event"></Helloone> 
+      <Hellotwo :name="twoName" @b="oneHello = $event"></Hellotwo>
   </div>
 </template>
-
+//自定义事件$event接收的是传递参数
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Helloone from './components/Helloone'
+import Hellotwo from './components/Hellotwo'
 export default {
-  name: 'app',
+  data () {
+      return{
+        oneName : 'one',
+        twoName : 'two',
+        oneHello:''
+      }
+  },
+
   components: {
-    HelloWorld
-  }
+    Helloone,
+    Hellotwo
+  },
+
+  // methods:{
+  //   fn1(){
+  //     this.twoName
+  //   }
+  // }
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

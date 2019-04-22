@@ -6,12 +6,18 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
-    props: {
-        name:{
-            type:String
-        }
-    }
+//   props: {
+//     name: {
+//       type: String
+//     }
+//   }
+  computed: {
+    ...mapState({
+      'name': (state) => state.threeName
+    })
+  }
 }
-</script>
 
+</script>

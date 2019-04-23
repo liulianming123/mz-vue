@@ -16,6 +16,9 @@ export default new Vuex.Store({
 
   getters: {
   // 基于state或者其余getter的getter
+    oneAndTwoName (state, getters) {
+      return state.oneName + '&' + state.twoName
+    }
   },
 
   mutations: {
@@ -32,6 +35,23 @@ export default new Vuex.Store({
 
   actions: {
     // 能够异变调用mutaion 的东西
-
+    // context -> 理解为 this.$store 有 commit 有 state 有 getters
+    fn1 ({ commit, state }) {
+      // var that = this
+      setTimeout(function () {
+        // that.chgTwoName({ name: '弟弟的' })
+        // this.$store.commmit({ type: 'chgtwoName', name: '弟弟2'})
+        commit({
+          type: 'chgTwoName',
+          name: '弟弟2'
+        })
+        setTimeout(() => {
+          commit({
+            type: 'chgThreeName',
+            name: '弟弟222'
+          })
+        }, 4000)
+      }, 2000)
+    }
   }
 })

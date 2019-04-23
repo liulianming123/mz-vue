@@ -6,11 +6,13 @@
     <!-- <Hellotwo :name="twoName" @b="oneHello = $event"></Hellotwo> -->
     <!-- <Hellotwo @b="oneHello = $event"></Hellotwo> -->
     <Hellotwo></Hellotwo>
+    <hr>
+    <h1>{{ oneAndTwoName }}</h1>
   </div>
 </template>
 //自定义事件$event接收的是传递参数
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import Helloone from './components/Helloone'
 import Hellotwo from './components/Hellotwo'
 export default {
@@ -28,6 +30,9 @@ export default {
     ...mapState([
       'oneName',
       'twoName'
+    ]),
+    ...mapGetters([
+      'oneAndTwoName'
     ]),
     fullName () {
       return this.lastname + '' + this.firstname

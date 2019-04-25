@@ -7,7 +7,7 @@
     <!-- <Hellotwo @b="oneHello = $event"></Hellotwo> -->
     <Hellotwo></Hellotwo>
     <hr>
-    <h1>{{ oneAndTwoName }}</h1>
+    <!-- <h1>{{ oneAndTwoName }}</h1> -->
   </div>
 </template>
 //自定义事件$event接收的是传递参数
